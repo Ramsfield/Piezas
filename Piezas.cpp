@@ -63,7 +63,7 @@ Piece Piezas::dropPiece(int column)
   turn = (turn == X) ? O : X; // Toggle who's turn it is
 
   //Check out of bounds
-  if(column >= board[0].size())
+  if((unsigned int)column >= board[0].size())
     return Invalid;
 
   //Check full column
