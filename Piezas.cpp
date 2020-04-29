@@ -141,7 +141,7 @@ Piece Piezas::gameState()
     for(unsigned int i=0; i < board.size(); i++)
     {
       //If a tile is blank, game isn't over
-      else if(board[i][j] == X)
+      if(board[i][j] == X)
       {
         cur_o=0; // Reset current O's
         cur_x++; // Update X streak
