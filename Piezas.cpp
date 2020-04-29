@@ -70,15 +70,15 @@ Piece Piezas::dropPiece(int column)
   if(board[board.size()-1][column] != Blank)
     return Blank;
 
-      //insert piece
-      for(unsigned int i=0; i < board.size(); i++)
-      {
-        if(board[i][column] == Blank)
-        {
-          board[i][column] = curTurn;
-          return curTurn;
-        }
-      }
+  //insert piece
+  for(unsigned int i=0; i < board.size(); i++)
+  {
+    if(board[i][column] == Blank)
+    {
+      board[i][column] = curTurn;
+      return curTurn;
+    }
+  }
   return Blank; //Should never get here, but if it did, it's an error
 }
 
