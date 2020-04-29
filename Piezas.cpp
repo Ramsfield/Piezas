@@ -89,7 +89,7 @@ Piece Piezas::dropPiece(int column)
 Piece Piezas::pieceAt(int row, int column)
 {
   //Check out of bounds, return Invalid if so
-  if((unsigned int)row >= board.size() || (unsigned int)column >= board[0].size())
+  if((unsigned int)row >= board.size() || (unsigned int)column >= board[0].size() || row < 0 || column < 0)
     return Invalid;
 
   return board[row][column];

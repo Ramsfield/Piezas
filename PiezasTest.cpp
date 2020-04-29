@@ -20,8 +20,28 @@ TEST(PiezasTest, sanityCheck)
 	ASSERT_TRUE(true);
 }
 
-//TESTS FOR DROP PIECE
+/*********************************************************************
+ *********************************************************************
+ *****************SIMPLE TESTS FOR CONSTRUCTOR************************
+ *********************************************************************
+ *********************************************************************/
+TEST(PiezasTest, ensure_4_x_3_blank)
+{
+  Piezas board;
+  for(int i=0; i < 3; i++)
+  {
+    for(int j=0; j < 4; j++)
+    {
+      ASSERT_EQ(pieceAt(i,j), Blank);
+    }
+  }
+}
 
+/*********************************************************************
+ *********************************************************************
+ *****************SIMPLE TESTS FOR DROP PIECE*************************
+ *********************************************************************
+ *********************************************************************/
 // Drop an X
 TEST(PiezasTest, drop_piece_x)
 {
@@ -62,4 +82,60 @@ TEST(PiezasTest, drop_piece_invalid_column)
   board.dropPiece(0);
   ret = board.dropPiece(0);
   ASSERT_EQ(ret, Blank);
+}
+
+TEST(PiezasTest, drop_piece_out_of_bounds)
+{
+  Piezas board;
+  Piece ret;
+  ret = board.dropPiece(7);
+  ASSERT_EQ(ret, Invalid);
+}
+
+TEST(PiezasTest, drop_piece_loss_of_turn)
+{
+  Piezas board;
+  Piece ret;
+  board.dropPiece(7);
+  ret = board.dropPiece(0)
+  ASSERT_EQ(ret, O);
+}
+
+/*********************************************************************
+ *********************************************************************
+ *****************SIMPLE TESTS FOR PIECE AT****************************
+ *********************************************************************
+ *********************************************************************/
+
+TEST(PiezasTest, blank_piece_start)
+{
+  Piezas board;
+  ASSERT_EQ(pieceAt(0,0), Blank);
+}
+
+TEST(PiezasTest, x_at)
+{
+  Piezas board;
+  board.dropPiece(0);
+  ASSERT_EQ(pieceAt(0,0), X);
+}
+
+TEST(PiezasTest, o_at)
+{
+  Piezas board;
+  board.dropPiece(0);
+  board.dropPiece(0);
+  ASSERT_EQ(pieceAt(1,0), O);
+}
+
+TEST(PiezasTest, out_of_bounds)
+{
+  Piezas board;
+  ASSERT_EQ(pieceAt(-1,-1), Invalid);
+}
+
+TEST(PiezasTest, out_of_bounds_max)
+{
+  Piezas board;
+  ASSERT_EQ(pieceAt(7,7), Invalid);
 }
