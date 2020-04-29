@@ -40,9 +40,9 @@ Piezas::Piezas()
  **/
 void Piezas::reset()
 {
-  for(unisgned int i=0; i < board.size(); i++)
+  for(unsigned int i=0; i < board.size(); i++)
   {
-    for(unisnged int j=0; j < board.size(); j++)
+    for(unsigned int j=0; j < board.size(); j++)
     {
       board[i][j] = Blank; // Reset all locations to blank
     }
@@ -63,19 +63,19 @@ Piece Piezas::dropPiece(int column)
   turn = (turn == X) ? O : X; // Toggle who's turn it is
 
   //Check out of bounds
-  if(column >= boards[0].size())
+  if(column >= board[0].size())
     return Invalid;
 
   //Check full column
-  if(boards[boards.size()-1][column] != Blank)
-    return Blank
+  if(board[board.size()-1][column] != Blank)
+    return Blank;
 
       //insert piece
-      for(unsigned int i=0; i < boards.size(); i++)
+      for(unsigned int i=0; i < board.size(); i++)
       {
-        if(boards[i][column] == Blank)
+        if(board[i][column] == Blank)
         {
-          boards[i][column] = curTurn;
+          board[i][column] = curTurn;
           return curTurn;
         }
       }
@@ -89,10 +89,10 @@ Piece Piezas::dropPiece(int column)
 Piece Piezas::pieceAt(int row, int column)
 {
   //Check out of bounds, return Invalid if so
-  if((unsigned int)row >= boards.size() || (unsigned int)column >= boards[0].size())
+  if((unsigned int)row >= board.size() || (unsigned int)column >= board[0].size())
     return Invalid;
 
-  return boards[row][column];
+  return board[row][column];
 }
 
 /**
@@ -115,21 +115,21 @@ Piece Piezas::gameState()
   int cur_o=0;
 
   //Check horizontal
-  for(unsigned int i=0; i < boards.size(); i++)
+  for(unsigned int i=0; i < board.size(); i++)
   {
-    for(unsigned int j=0; j < boards[i].size(); j++)
+    for(unsigned int j=0; j < board[i].size(); j++)
     {
       //If a tile is blank, game isn't over
-      if(boards[i][j] == Blank)
+      if(board[i][j] == Blank)
         return Invalid;
-      else if(boards[i][j] == X)
+      else if(board[i][j] == X)
       {
         cur_o=0; // Reset current O's
         cur_x++; // Update X streak
         if(cur_x > max_x)
           max_x = cur_x;
       }
-      else if(boards[i][j] == O)
+      else if(board[i][j] == O)
       {
         cur_x=0; // Reset current X's
         cur_o++; // Update O streak
@@ -140,21 +140,21 @@ Piece Piezas::gameState()
   }
 
   //Check Vertical
-  for(unsigned int j=0; j < boards[0].size(); j++) // Relies upon the game board being square
+  for(unsigned int j=0; j < board[0].size(); j++) // Relies upon the game board being square
   {
-    for(unsigned int i=0; i < boards.size(); i++)
+    for(unsigned int i=0; i < board.size(); i++)
     {
       //If a tile is blank, game isn't over
-      if(boards[i][j] == Blank)
+      if(board[i][j] == Blank)
         return Invalid;
-      else if(boards[i][j] == X)
+      else if(board[i][j] == X)
       {
         cur_o=0; // Reset current O's
         cur_x++; // Update X streak
         if(cur_x > max_x)
           max_x = cur_x;
       }
-      else if(boards[i][j] == O)
+      else if(board[i][j] == O)
       {
         cur_x=0; // Reset current X's
         cur_o++; // Update O streak
@@ -166,5 +166,5 @@ Piece Piezas::gameState()
   //Return winner, blank if tie
   if(max_x == max_o)
     return Blank;
-  return (max_x > max_o) ? max_x : max_o; // Max of the two
+  return (max_x > max_o) ? X : O; // Max of the two
 }
