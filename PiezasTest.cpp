@@ -31,14 +31,14 @@ TEST(PiezasTest, drop_piece_x)
   ASSERT_EQ(ret, X);
 }
 
-// Drop a Y
-TEST(PiezasTest, drop_piece_y)
+// Drop a O
+TEST(PiezasTest, drop_piece_o)
 {
   Piezas board;
   Piece ret;
   board.dropPiece(0);
   ret = board.dropPiece(0);
-  ASSERT_EQ(ret, Y);
+  ASSERT_EQ(ret, O);
 }
 
 // Drop last X in column
