@@ -66,10 +66,6 @@ Piece Piezas::dropPiece(int column)
   if((unsigned int)column >= board[0].size())
     return Invalid;
 
-  //Check full column
-  if(board[board.size()-1][column] != Blank)
-    return Blank;
-
   //insert piece
   for(unsigned int i=0; i < board.size(); i++)
   {
@@ -79,7 +75,7 @@ Piece Piezas::dropPiece(int column)
       return curTurn;
     }
   }
-  return Blank; //Should never get here, but if it did, it's an error
+  return Blank; //Refactoring so i can get 100% code coverage. This is now the is full column case
 }
 
 /**
