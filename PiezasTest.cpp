@@ -60,7 +60,6 @@ TEST(PiezasTest, drop_piece_invalid_column)
   board.dropPiece(0);
   board.dropPiece(0);
   board.dropPiece(0);
-  board.dropPiece(0);
   ret = board.dropPiece(0);
-  ASSERT_EQ(ret, Invalid);
+  ASSERT_EQ(ret, Blank);
 }
