@@ -97,7 +97,7 @@ TEST(PiezasTest, drop_piece_loss_of_turn)
   Piezas board;
   Piece ret;
   board.dropPiece(7);
-  ret = board.dropPiece(0)
+  ret = board.dropPiece(0);
   ASSERT_EQ(ret, O);
 }
 
