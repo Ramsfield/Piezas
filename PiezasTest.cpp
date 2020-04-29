@@ -53,7 +53,7 @@ TEST(PiezasTest, drop_piece_last_x)
 }
 
 // Invalid Drop
-TEST(PiezasTest, drop_piece_last_x)
+TEST(PiezasTest, drop_piece_invalid_column)
 {
   Piezas board;
   Piece ret;
