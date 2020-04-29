@@ -198,7 +198,7 @@ TEST(PiezasTest, gamestate_tie)
   board.dropPiece(4);
   board.dropPiece(4);
   board.dropPiece(4);
-  ASSERT_EQ(board.gameState(), Blank)
+  ASSERT_EQ(board.gameState(), Blank);
 }
 
 TEST(PiezasTest, gamestate_x)
@@ -225,7 +225,7 @@ TEST(PiezasTest, gamestate_x)
   board.dropPiece(3);
   board.dropPiece(0);
 
-  ASSERT_EQ(board.gameState(), X)
+  ASSERT_EQ(board.gameState(), X);
 }
 
 TEST(PiezasTest, gamestate_o)
@@ -252,7 +252,7 @@ TEST(PiezasTest, gamestate_o)
   board.dropPiece(0);
   board.dropPiece(3);
 
-  ASSERT_EQ(board.gameState(), O)
+  ASSERT_EQ(board.gameState(), O);
 }
 
 TEST(PiezasTest, gamestate_incomplete)
@@ -275,5 +275,5 @@ TEST(PiezasTest, gamestate_incomplete)
   board.dropPiece(2);
   board.dropPiece(0);
 
-  ASSERT_EQ(board.gameState(), Invalid)
+  ASSERT_EQ(board.gameState(), Invalid);
 }
