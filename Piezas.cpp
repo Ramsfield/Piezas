@@ -141,8 +141,6 @@ Piece Piezas::gameState()
     for(unsigned int i=0; i < board.size(); i++)
     {
       //If a tile is blank, game isn't over
-      if(board[i][j] == Blank)
-        return Invalid;
       else if(board[i][j] == X)
       {
         cur_o=0; // Reset current O's
