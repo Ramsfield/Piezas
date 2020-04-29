@@ -32,7 +32,7 @@ TEST(PiezasTest, ensure_4_x_3_blank)
   {
     for(int j=0; j < 4; j++)
     {
-      ASSERT_EQ(pieceAt(i,j), Blank);
+      ASSERT_EQ(board.pieceAt(i,j), Blank);
     }
   }
 }
@@ -110,14 +110,14 @@ TEST(PiezasTest, drop_piece_loss_of_turn)
 TEST(PiezasTest, blank_piece_start)
 {
   Piezas board;
-  ASSERT_EQ(pieceAt(0,0), Blank);
+  ASSERT_EQ(board.pieceAt(0,0), Blank);
 }
 
 TEST(PiezasTest, x_at)
 {
   Piezas board;
   board.dropPiece(0);
-  ASSERT_EQ(pieceAt(0,0), X);
+  ASSERT_EQ(board.pieceAt(0,0), X);
 }
 
 TEST(PiezasTest, o_at)
@@ -125,17 +125,17 @@ TEST(PiezasTest, o_at)
   Piezas board;
   board.dropPiece(0);
   board.dropPiece(0);
-  ASSERT_EQ(pieceAt(1,0), O);
+  ASSERT_EQ(board.pieceAt(1,0), O);
 }
 
 TEST(PiezasTest, out_of_bounds)
 {
   Piezas board;
-  ASSERT_EQ(pieceAt(-1,-1), Invalid);
+  ASSERT_EQ(board.pieceAt(-1,-1), Invalid);
 }
 
 TEST(PiezasTest, out_of_bounds_max)
 {
   Piezas board;
-  ASSERT_EQ(pieceAt(7,7), Invalid);
+  ASSERT_EQ(board.pieceAt(7,7), Invalid);
 }
