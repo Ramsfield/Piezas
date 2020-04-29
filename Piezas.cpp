@@ -42,7 +42,7 @@ void Piezas::reset()
 {
   for(unsigned int i=0; i < board.size(); i++)
   {
-    for(unsigned int j=0; j < board.size(); j++)
+    for(unsigned int j=0; j < board[i].size(); j++)
     {
       board[i][j] = Blank; // Reset all locations to blank
     }
