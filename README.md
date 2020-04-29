@@ -1,4 +1,6 @@
 # Piezas
+[![Build Status](https://travis-ci.org/Ramsfield/Piezas.svg?branch=master)](https://travis-ci.org/Ramsfield/Piezas)
+[![Coverage Status](https://coveralls.io/repos/github/Ramsfield/Piezas/badge.svg?branch=master)](https://coveralls.io/github/Ramsfield/Piezas?branch=master)
 
 ## Associated Enumerated Types
 `Piece` has four possible values: `X`,`O`,`Invalid`, and `Blank`
